@@ -46,6 +46,8 @@
 
 > This is why Version Control is very important.
 
+---
+
 #### Downloading Git
 
 > Click to [download and install](https://git-scm.com/downloads) or [install via Chocolatey](https://community.chocolatey.org/packages/git) to download.
@@ -68,6 +70,8 @@
 + Now, the terminal will start with Username instead of Username@DeviceName
 + We can go to Home Directory and edit .bash_profile to change colors etc.
 + We can delete the .bash_profile if this set up is not needed.
+
+---
 
 #### Executing First Commit
 
@@ -101,7 +105,9 @@
 - **To set email**: `git config --global user.email "Email"`
 - **To set default editor**: `git config --global core.editor "code --wait"`
 	+ `--wait`: when we don't give a commit message (`git ommit`) the default editor is opened. We have to enter commit message and close the file. After that, the commit will be done.
-	
+
+---
+
 Getting Started with [GitHub](https://github.com/)
 -
 - GitHub **uses Git** (Copies or Clones the repository).
@@ -157,8 +163,6 @@ Getting Started with [GitHub](https://github.com/)
 - A **copy** of that repository will be available in our GitHub account.
 - We **can make changes** to that repository and the changes will be **reflected only in our GitHub account**.
 
-----------------------------
-
 #### Cloning a Repository
 
 - Open GitHub
@@ -172,3 +176,49 @@ Getting Started with [GitHub](https://github.com/)
 - **Command to clone:** `git clone <HTTPS_URL>` 
 - After cloning, cd inside the repository.
 - Run `code .` in Git Bash to **open** the code in the **default editor**.
+
+#### Exploring Git Logs
+
+- Command to view Git logs: `git log`
+- To come out of Git log: Press `q`
+
+##### Checking the difference between 2 commits
+
+- `git diff commitId-1 commitId-2`
+- `git diff HEAD~1 HEAD ~4`
+	- ***HEAD*** is the latest commit
+	- `HEAD~1` & `HEAD~4` are the 1st and 4th commit before ***HEAD***
+
+#### Getting Commit and File Details with Git
+
+- `git show commitId`
+- `git show HEAD` - ***HEAD*** is the latest commit
+- `git show HEAD~3` - `HEAD~3` is to view the 3rd commit before latest commit.
+
+#### To view the changes of a particular file
+
+`git annotate fileName`
+
+#### Exploring Commit and File Details from GitHub
+
+- We can find lot of options in GitHub.
+- Viewing the commit history, commit id (SHA), files etc.
+- We can also comment, blame, view other branches etc.
+
+#### Making changes and committing
+
+- Instead of doing `git add .` and `git commit -m commitMessage`
+- We can directly use `git commit -a -m commitMessage`
+
+#### Undoing Changes and Reverting Commits
+
+- If a ***change*** that is ***saved but not yet staged*** need to be reverted, below command can be used.
+	- `git checkout -- fileNameToBeReverted`
+- If a change is already staged but need to be reverted, below command can be used,
+	- `git reset HEAD fileNameToBeReverted` and then `git checkout -- fileNameToBeReverted`
+- If a change is committed/pushed but need to be reverted, below command can be used.
+	- `git checkout commitId fileNameToBeReverted`
+
+#### Dealing with multiple files
+* `git reset HEAD .` - To un stage multiple files.
+* `git checkout HEAD .` - To revert the changes that aren't changed.
